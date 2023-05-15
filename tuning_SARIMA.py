@@ -16,6 +16,7 @@ from warnings import catch_warnings
 from warnings import filterwarnings
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_percentage_error
 
 filepath ='/home/veroastro/Documents/Forecasting_globla_temp/data/'
 data = pd.read_csv(filepath +'GlobalTemperatures.csv')
@@ -147,3 +148,5 @@ if __name__ == '__main__':
 	# list top 3 configs
 	for cfg, error in scores[:3]:
 		print(cfg, error)
+        print(1-100*error/series[-n_test:])
+   
